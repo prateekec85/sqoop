@@ -1,0 +1,18 @@
+SQOOP Notes
+
+1) Sqoop access the driver jar file like ojdbc.jar file from default location /var/lib/sqoop
+2) jar file can be provided using option -libjars in command seperated jarfile name in oozie sqoop action
+3) Sqoop help <command name> will give help about that command. e.g. sqoop help import
+
+4) list-databases
+
+	> sqoop list-databases --connect jdbc:mysql://localhost:3306 --username root --password cloudera
+
+5) list-tables
+	> sqoop list-tables --connect jdbc:mysql://localhost:3306/retail_db --username root --password cloudera
+
+6) sqoop eval:- this is use full command to execute any query on RDBMS and see its result. like desc table to check datatype, count(*) to check data volume etc.
+	> sqoop eval --connect jdbc:mysql://localhost:3306/retail_db --username root --password cloudera --query "select * from orders limit 10"
+
+7) Transfer logs to a sepearte file
+	> sqoop eval --connect jdbc:mysql://localhost:3306/retail_db --username root --password cloudera --query "desc orders" 1>query.out 2>query.out

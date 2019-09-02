@@ -1,0 +1,22 @@
+SQOOP Import
+
+1) sample command to import data to a particular hdfs directory
+	>	sqoop import --connect jdbc:mysql://localhost:3306/retail_db --username root --password cloudera --table orders --target-dir 	/user/cloudera/practice/sqoop-import/retail_db/orders
+
+
+2) --target-dir vs --warehouse-dir
+
+In --target-dir we have to provide absolute path where SQOOP will simply create the files.
+In --warehouse-dir, we have to provide the base directory. In base directory, sqoop will create a folder named source table name. In this folder, it will copy the files. e..g. in below command a new folder order_items will be created in directory /user/cloudera/practice/sqoop-import/retail_db/ as source table name is order_items.
+
+	>	sqoop import --connect jdbc:mysql://localhost:3306/retail_db --username root --password cloudera --table order_items --target-dir /user/cloudera/practice/sqoop-import/retail_db/
+	
+3) By default if target directory already exists, sqoop import will fail stating target directory already exists.
+this behaviour can be modified in below way
+
+
+--append  this argument will tell sqoop to add the fies if target directory already exists.
+--delete-target-directory    this argument will tell sqoop to delete the target directory if target directory already exists.
+
+
+4) 

@@ -1,0 +1,25 @@
+Sqoop import in different format
+
+1) With sqoop can import data with output file format will be of text, avro, parquet or sequence file. Text file is the default format
+	Below are the control parameter
+	--as-avrodatafile
+	--as-parquetfile
+	--as-sequencefile
+	--as-textfile 
+
+2) with help from avro-tools command we can see the schema of avro file as well as we can convert the avro file to a json file.
+	> avro-tools getSchema <avrofilename>
+	> avro-tools toJson <avrofilename>
+
+3) output files can be compressed in different format.
+	--compress this will enable compression
+	--compression-code <codec class fully qualified path> this will provide the codec to be used for compression
+	
+	gzip		org.apache.hadoop.io.compress.GzipCodec
+	bzip2		org.apache.hadoop.io.compress.BZip2Codec
+	LZO			com.hadoop.compression.lzo.LzopCodec
+	Snappy		org.apache.hadoop.io.compress.SnappyCodec
+	Deflate		org.apache.hadoop.io.compress.DeflateCodec
+	
+	
+	
